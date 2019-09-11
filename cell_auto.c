@@ -82,14 +82,14 @@ int main(int argc, char ** argv)
 
     char * rule_str;
     // YOUR CODE HERE: set rule_str to the appropriate
-    rule_str = argv[0];
+    rule_str = argv[1];
     rule = (unsigned int) strtoul(rule_str, (endptr = argv), 10);
     if(**endptr)
         usage();
 
     char * rows_str;
     // YOUR CODE HERE: set row_str to the appropriate string
-    rows_str = argv[1];
+    rows_str = argv[2];
     rows = (unsigned int) strtoul(rows_str, (endptr = argv), 10);
     if(**endptr)
         usage();
@@ -105,7 +105,7 @@ int main(int argc, char ** argv)
      * ...
      */
 
-    printf("P1 %d %d ## %d of automata simulation (Rule %d)\n",*rowA, *rowB, rows, rule);
+    printf("P1 %d %d ## %d of automata simulation (Rule %d)\n", (rows * 2 + 1), (rows + 1), rows, rule);
 
     /*
      * PART 3: MEMORY MANAGEMENT
