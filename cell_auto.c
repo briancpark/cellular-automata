@@ -74,7 +74,7 @@ int main(int argc, char ** argv)
 
     /* PART 1, TASK 1: Check that the number of arguments is correct */
 
-    if (argc != 1) {
+    if (argc > 1) {
         usage();
     }
 
