@@ -81,13 +81,15 @@ int main(int argc, char ** argv)
     /* PART 1, TASK 2: Convert `rule` and `rows` from a strings (char *) to an unsigned ints */
 
     char * rule_str;
-    // YOUR CODE HERE: set rule_str to the appropriate string
+    // YOUR CODE HERE: set rule_str to the appropriate
+    rule_str = argc;
     rule = (unsigned int) strtoul(rule_str, (endptr = argv), 10);
     if(**endptr)
         usage();
 
     char * rows_str;
     // YOUR CODE HERE: set row_str to the appropriate string
+    row_str = argv;
     rows = (unsigned int) strtoul(rows_str, (endptr = argv), 10);
     if(**endptr)
         usage();
@@ -103,7 +105,7 @@ int main(int argc, char ** argv)
      * ...
      */
 
-    // YOUR CODE HERE
+    printf("P1 <width> <height> ## <rows> of automata simulation (Rule <rule>)");
 
     /*
      * PART 3: MEMORY MANAGEMENT
