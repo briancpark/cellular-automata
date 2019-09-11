@@ -74,20 +74,20 @@ int main(int argc, char ** argv)
 
     /* PART 1, TASK 1: Check that the number of arguments is correct */
 
-    if (argc > 1) {
+    if (argc != 1) {
         usage();
     }
 
     /* PART 1, TASK 2: Convert `rule` and `rows` from a strings (char *) to an unsigned ints */
 
     char * rule_str;
-    //rule_str = argc;
+    // YOUR CODE HERE: set rule_str to the appropriate string
     rule = (unsigned int) strtoul(rule_str, (endptr = argv), 10);
     if(**endptr)
         usage();
 
     char * rows_str;
-    //rows_str = ** argv;
+    // YOUR CODE HERE: set row_str to the appropriate string
     rows = (unsigned int) strtoul(rows_str, (endptr = argv), 10);
     if(**endptr)
         usage();
@@ -103,7 +103,7 @@ int main(int argc, char ** argv)
      * ...
      */
 
-    printf("",)
+    // YOUR CODE HERE
 
     /*
      * PART 3: MEMORY MANAGEMENT
