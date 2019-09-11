@@ -74,7 +74,7 @@ int main(int argc, char ** argv)
 
     /* PART 1, TASK 1: Check that the number of arguments is correct */
 
-    if (argc != 1) {
+    if (argc != 3) {
         usage();
     }
 
@@ -82,14 +82,14 @@ int main(int argc, char ** argv)
 
     char * rule_str;
     // YOUR CODE HERE: set rule_str to the appropriate
-    //rule_str = argc;
+    //rule_str = *argc;
     rule = (unsigned int) strtoul(rule_str, (endptr = argv), 10);
     if(**endptr)
         usage();
 
     char * rows_str;
     // YOUR CODE HERE: set row_str to the appropriate string
-    //row_str = argv;
+    //rows_str = (char*) argv;
     rows = (unsigned int) strtoul(rows_str, (endptr = argv), 10);
     if(**endptr)
         usage();
@@ -105,7 +105,7 @@ int main(int argc, char ** argv)
      * ...
      */
 
-    printf("P1 %s %s ## %d of automata simulation (Rule %d)\n",rowA, rowB, rows ,rule);
+    printf("P1 %d %d ## %d of automata simulation (Rule %d)\n",*rowA, *rowB, rows, rule);
 
     /*
      * PART 3: MEMORY MANAGEMENT
