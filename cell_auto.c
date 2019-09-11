@@ -89,7 +89,7 @@ int main(int argc, char ** argv)
 
     char * rows_str;
     // YOUR CODE HERE: set row_str to the appropriate string
-    row_str = argv;
+    row_str = **argv;
     rows = (unsigned int) strtoul(rows_str, (endptr = argv), 10);
     if(**endptr)
         usage();
@@ -105,7 +105,7 @@ int main(int argc, char ** argv)
      * ...
      */
 
-    printf("P1 <width> <height> ## <rows> of automata simulation (Rule <rule>)");
+    //printf("P1 <width> <height> ## <rows> of automata simulation (Rule <rule>)");
 
     /*
      * PART 3: MEMORY MANAGEMENT
