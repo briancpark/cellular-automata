@@ -163,17 +163,15 @@ int main(int argc, char ** argv)
         for (i = 2; i < 2 * rows + 3; i++) {
             int loc = (rowB[i-2] * 16) + (rowB[i-1] * 8) + (rowB[i] * 4) + (rowB[i+1] * 2) + rowB[i+2];
 
-            if (pow(2, loc) < rule) {
+            if ((rule >> (loc)) - ((rule >> (loc + 1)) << 1) == 1) {
                 rowA[i] = 1;
-            }
-            else {
+            } else {
                 rowA[i] = 0;
             }
-
         }
 
         for (i = 2; i < 2 * rows + 3; i++) {
-            printf("%d", rowB[i]);
+            printf("%d", rowA[i]);
             if (i != 2 * rows + 3) {
                 printf(" ");
             }
