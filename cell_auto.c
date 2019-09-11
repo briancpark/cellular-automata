@@ -35,9 +35,9 @@
  */
 void usage(void)
 {
- 
+
     printf("    Proper usage: cell_auto <rule> <rows>\n\n");
-    
+
     printf("    This program simulates a simple cellular automata, outputting data to STDOUT\n"
            "    in the PBM file format. It takes two arguments. First, `rule`, which should be\n"
            "    a number between 0 and 2^32 - 1. Second, `rows`, the number of generations the\n"
@@ -54,27 +54,29 @@ void usage(void)
 /*
  * Takes in a `rule` and number of `rows` and prints the cellular automata simulation in PBM format
  */
-int main(int argc, char ** argv) 
+int main(int argc, char ** argv)
 {
 
     char *rowA, *rowB, **endptr;
     u_int32_t rule, rows;
 
-    /* 
+    /*
      * PART 1: USING COMMAND LINE ARGUMENTS
      * ====================================
-     * When using command line arguments, its important to perform validation to prevent improper usage. 
-     * In Task 1, check that the number of arguments the user has provided is correct. 
+     * When using command line arguments, its important to perform validation to prevent improper usage.
+     * In Task 1, check that the number of arguments the user has provided is correct.
      *
-     * In C, all command line arguments are provided as strings, but we need our arguments as integers. 
-     * In Task 2, finish the conversion from strings to unsigned ints using `strtoul(). 
+     * In C, all command line arguments are provided as strings, but we need our arguments as integers.
+     * In Task 2, finish the conversion from strings to unsigned ints using `strtoul().
      * `strtoul` converts a string (str) to (to) an unsigned long (ul).
      * Try `man strtoul` if you want more information about what this function does.
      */
 
     /* PART 1, TASK 1: Check that the number of arguments is correct */
 
-    // YOUR CODE HERE
+    if (argc > 1) {
+        printf("incorrect\n");
+    }
 
     /* PART 1, TASK 2: Convert `rule` and `rows` from a strings (char *) to an unsigned ints */
 
@@ -90,20 +92,20 @@ int main(int argc, char ** argv)
     if(**endptr)
         usage();
 
-    /* 
+    /*
      * PART 2: USING FORMATTING ARGUMENTS & PRINTF
      * ===========================================
      * A properly formatted PBM file starts with P1 <width> <height>
      * Write code that will print "P1 <width> <height> ## <rows> of automata simulation (Rule <rule>)", followed by a newline
      *
-     * Example: 
+     * Example:
      * P1 11 6 ## 5 rows of automata simulation (Rule 450)
      * ...
      */
 
     // YOUR CODE HERE
 
-    /* 
+    /*
      * PART 3: MEMORY MANAGEMENT
      * =========================
      * (There is no task for Part 3, but please read through the code & any accompanying
@@ -118,33 +120,31 @@ int main(int argc, char ** argv)
     rowA = calloc(2 * rows + 5, 1);
     rowB = calloc(2 * rows + 5, 1);
 
-    /* 
-     * Check to see that memory allocation has been successful. 
-     * If not, write "Out of memory" to STDERR and exit with error code 1. 
+    /*
+     * Check to see that memory allocation has been successful.
+     * If not, write "Out of memory" to STDERR and exit with error code 1.
      */
     if(!(rowA && rowB)) {
-      fprintf(stderr, "Error allocating rowA and rowB.\n"); 
-      exit(1); 
+      fprintf(stderr, "Error allocating rowA and rowB.\n");
+      exit(1);
     }
 
-    /* 
+    /*
      * PART 4: C CODING & (hint!) BITWISE OPERATIONS
      * =============================================
-     * You must now generate and print the initial generation and each successive generation. 
+     * You must now generate and print the initial generation and each successive generation.
      */
 
     // YOUR CODE HERE
 
     /* PART 3.5: MEMORY MANAGEMENT, PT. 2
-     * (There is no task for Part 3, but please read through the code & any accompanying 
+     * (There is no task for Part 3, but please read through the code & any accompanying
      * comments: you should fully understand everything that is being done here)
-     * Free initialized memory and exit successfully. 
+     * Free initialized memory and exit successfully.
      */
     free(rowA);
     free(rowB);
-	
+
     return 0;
 
 }
-
-
