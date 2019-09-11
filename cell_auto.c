@@ -81,13 +81,13 @@ int main(int argc, char ** argv)
     /* PART 1, TASK 2: Convert `rule` and `rows` from a strings (char *) to an unsigned ints */
 
     char * rule_str;
-    rule_str = argc;
+    //rule_str = argc;
     rule = (unsigned int) strtoul(rule_str, (endptr = argv), 10);
     if(**endptr)
         usage();
 
     char * rows_str;
-    rows_str = ** argv;
+    //rows_str = ** argv;
     rows = (unsigned int) strtoul(rows_str, (endptr = argv), 10);
     if(**endptr)
         usage();
