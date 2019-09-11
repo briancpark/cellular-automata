@@ -23,6 +23,7 @@
 // Feel free to include any other C standard library header files here
 // (Our staff solution does not use any other header files)
 
+#include <math.h>
 
 /****************************************************************************************
  *
@@ -105,6 +106,9 @@ int main(int argc, char ** argv)
      * ...
      */
 
+    int width = (rows * 2 + 1);
+    int length = (rows + 1);
+
     printf("P1 %d %d ## %d of automata simulation (Rule %d)\n", (rows * 2 + 1), (rows + 1), rows, rule);
 
     /*
@@ -137,7 +141,49 @@ int main(int argc, char ** argv)
      * You must now generate and print the initial generation and each successive generation.
      */
 
-    // YOUR CODE HERE
+    // Initial Generation
+    rowA[rows + 2] = 1;
+    int i;
+    for (i = 2; i < 2 * rows + 3; i++) {
+        printf("%d", rowA[i]);
+        if (i != 2 * rows + 3) {
+            printf(" ");
+        }
+    }
+    length = length - 1;
+    printf("\n");
+
+    while (length != 0) {
+        //Recopy the array to B and reset A
+        for (i = 2; i < 2 * rows + 3; i++) {
+            rowB[i] = rowA[i];
+        }
+        rowA = calloc(2 * rows + 5, 1);
+
+        for (i = 2; i < 2 * rows + 3; i++) {
+            int loc = (rowB[i-2] * 16) + (rowB[i-1] * 8) + (rowB[i] * 4) + (rowB[i+1] * 2) + rowB[i+2];
+
+            if (pow(2, loc) < rule) {
+                rowA[i] = 1;
+            }
+            else {
+                rowA[i] = 0;
+            }
+
+        }
+
+        for (i = 2; i < 2 * rows + 3; i++) {
+            printf("%d", rowB[i]);
+            if (i != 2 * rows + 3) {
+                printf(" ");
+            }
+        }
+        length = length - 1;
+        printf("\n");
+
+    }
+
+
 
     /* PART 3.5: MEMORY MANAGEMENT, PT. 2
      * (There is no task for Part 3, but please read through the code & any accompanying
