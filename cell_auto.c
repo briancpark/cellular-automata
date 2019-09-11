@@ -87,7 +87,7 @@ int main(int argc, char ** argv)
         usage();
 
     char * rows_str;
-    rows_str = argv;
+    rows_str = ** argv;
     rows = (unsigned int) strtoul(rows_str, (endptr = argv), 10);
     if(**endptr)
         usage();
