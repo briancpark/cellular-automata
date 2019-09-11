@@ -105,7 +105,7 @@ int main(int argc, char ** argv)
      * ...
      */
 
-    //printf("P1 <width> <height> ## <rows> of automata simulation (Rule <rule>)");
+    printf("P1 %d %d ## %d of automata simulation (Rule %d)\n",rowA, rowB, rows ,rule);
 
     /*
      * PART 3: MEMORY MANAGEMENT
