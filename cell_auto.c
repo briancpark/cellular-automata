@@ -75,7 +75,7 @@ int main(int argc, char ** argv)
     /* PART 1, TASK 1: Check that the number of arguments is correct */
 
     if (argc > 1) {
-        printf("incorrect\n");
+        usage();
     }
 
     /* PART 1, TASK 2: Convert `rule` and `rows` from a strings (char *) to an unsigned ints */
