@@ -82,14 +82,14 @@ int main(int argc, char ** argv)
 
     char * rule_str;
     // YOUR CODE HERE: set rule_str to the appropriate
-    //rule_str = *argc;
+    rule_str = argv[0];
     rule = (unsigned int) strtoul(rule_str, (endptr = argv), 10);
     if(**endptr)
         usage();
 
     char * rows_str;
     // YOUR CODE HERE: set row_str to the appropriate string
-    //rows_str = (char*) argv;
+    rows_str = argv[1];
     rows = (unsigned int) strtoul(rows_str, (endptr = argv), 10);
     if(**endptr)
         usage();
