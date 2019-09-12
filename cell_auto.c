@@ -23,8 +23,6 @@
 // Feel free to include any other C standard library header files here
 // (Our staff solution does not use any other header files)
 
-#include <math.h>
-
 /****************************************************************************************
  *
  * Functions
@@ -109,7 +107,7 @@ int main(int argc, char ** argv)
     int width = (rows * 2 + 1);
     int length = (rows + 1);
 
-    printf("P1 %d %d ## %d of automata simulation (Rule %d)\n", (rows * 2 + 1), (rows + 1), rows, rule);
+    printf("P1 %d %d ## %d rows of automata simulation (Rule %d)\n", (rows * 2 + 1), (rows + 1), rows, rule);
 
     /*
      * PART 3: MEMORY MANAGEMENT
