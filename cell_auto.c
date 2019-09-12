@@ -180,9 +180,7 @@ int main(int argc, char ** argv)
             }
         }
         length = length - 1;
-        if (length != 0) {
-            printf("\n");
-        }
+        printf("\n");
         free(rowB);
         rowB = calloc(2 * rows + 5, 1);
 
