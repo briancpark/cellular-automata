@@ -157,6 +157,7 @@ int main(int argc, char ** argv)
         for (i = 2; i < 2 * rows + 3; i++) {
             rowB[i] = rowA[i];
         }
+        free(rowA);
         rowA = calloc(2 * rows + 5, 1);
 
         //Check the previous generation (rowB) and update the new generation (rowA)
