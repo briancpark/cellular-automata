@@ -19,6 +19,7 @@
 
 // <sys/types.h> needed for u_int32_t
 #include <sys/types.h>
+#include <stdint.h>
 
 // Feel free to include any other C standard library header files here
 // (Our staff solution does not use any other header files)
@@ -57,7 +58,7 @@ int main(int argc, char ** argv)
 {
 
     char *rowA, *rowB, **endptr;
-    u_int32_t rule, rows;
+    uint32_t rule, rows;
 
     /*
      * PART 1: USING COMMAND LINE ARGUMENTS
@@ -107,7 +108,7 @@ int main(int argc, char ** argv)
     int width = (rows * 2 + 1);
     int length = (rows + 1);
 
-    printf("P1 %d %d ## %d rows of automata simulation (Rule %zu)\n", width, length, rows, rule);
+    printf("P1 %d %d ## %d rows of automata simulation (Rule %s)\n", width, length, rows, argv[1]);
 
     /*
      * PART 3: MEMORY MANAGEMENT
