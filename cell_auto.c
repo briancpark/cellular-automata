@@ -153,7 +153,6 @@ int main(int argc, char ** argv)
 
     //Succesive Genration
     while (length != 0) {
-        free(rowB);
         //Recopy the array to B and reset A
         for (i = 2; i < 2 * rows + 3; i++) {
             rowB[i] = rowA[i];
@@ -181,6 +180,7 @@ int main(int argc, char ** argv)
         }
         length = length - 1;
         printf("\n");
+        free(rowB);
         rowB = calloc(2 * rows + 5, 1);
 
     }
