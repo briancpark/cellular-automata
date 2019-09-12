@@ -22,7 +22,7 @@
 
 // Feel free to include any other C standard library header files here
 // (Our staff solution does not use any other header files)
-
+#include <stdint.h>
 /****************************************************************************************
  *
  * Functions
@@ -57,7 +57,7 @@ int main(int argc, char ** argv)
 {
 
     char *rowA, *rowB, **endptr;
-    u_int32_t rule, rows;
+    uint32_t rule, rows;
 
     /*
      * PART 1: USING COMMAND LINE ARGUMENTS
