@@ -152,7 +152,6 @@ int main(int argc, char ** argv)
     printf("\n");
 
     while (length != 0) {
-        rowB = calloc(2 * rows + 5, 1);
         //Recopy the array to B and reset A
         for (i = 2; i < 2 * rows + 3; i++) {
             rowB[i] = rowA[i];
@@ -178,7 +177,7 @@ int main(int argc, char ** argv)
             }
         }
         length = length - 1;
-        printf("\n");
+        //printf("\n");
     }
 
 
