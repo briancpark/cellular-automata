@@ -144,7 +144,7 @@ int main(int argc, char ** argv)
     rowA[rows + 2] = 1;
     int i;
     for (i = 2; i < 2 * rows + 3; i++) {
-        printf("%d", rowA[i]);
+        printf("%u", rowA[i]);
         if (i != 2 * rows + 2) {
             printf(" ");
         }
@@ -170,12 +170,11 @@ int main(int argc, char ** argv)
             } else {
                 rowA[i] = 0;
             }
-
         }
 
         //print out the values
         for (i = 2; i < 2 * rows + 3; i++) {
-            printf("%d", rowA[i]);
+            printf("%u", rowA[i]);
             if (i != 2 * rows + 2) {
                 printf(" ");
             }
