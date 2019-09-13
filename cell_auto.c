@@ -167,8 +167,6 @@ int main(int argc, char ** argv)
 
             if ((rule >> (loc)) - ((rule >> (loc + 1)) << 1) == 1) {
                 rowA[i] = 1;
-            } else {
-                rowA[i] = 0;
             }
         }
 
