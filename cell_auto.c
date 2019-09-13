@@ -163,7 +163,7 @@ int main(int argc, char ** argv)
         rowA = calloc(2 * rows + 5, 1);
 
         //Check the previous generation (rowB) and update the new generation (rowA)
-        unsigned int h;
+        int h;
         for (h = 2; h < width + 2; h++) {
             int loc = (rowB[i - 2] * 16) + (rowB[i - 1] * 8) + (rowB[i] * 4) + (rowB[i + 1] * 2) + rowB[i + 2];
 
@@ -173,7 +173,7 @@ int main(int argc, char ** argv)
         }
 
         //print out the values
-        unsigned int f;
+        int f;
         for (f = 2; f < width + 2; f++) {
             printf("%u", rowA[f]);
             if (f != 2 * rows + 2) {
