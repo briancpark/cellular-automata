@@ -162,8 +162,8 @@ int main(int argc, char ** argv)
         rowA = calloc(2 * rows + 5, 1);
 
         //Check the previous generation (rowB) and update the new generation (rowA)
-        for (i = 2; i < 2 * rows + 3; i++) {
-            int loc = (rowB[i-2] * 16) + (rowB[i-1] * 8) + (rowB[i] * 4) + (rowB[i+1] * 2) + rowB[i+2];
+        for (i = 2; i < 2 * rows; i++) {
+            int loc = (rowB[i - 2] * 16) + (rowB[i - 1] * 8) + (rowB[i] * 4) + (rowB[i + 1] * 2) + rowB[i + 2];
 
             if ((rule >> (loc)) - ((rule >> (loc + 1)) << 1) == 1) {
                 rowA[i] = 1;
