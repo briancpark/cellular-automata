@@ -170,7 +170,7 @@ int main(int argc, char ** argv)
             }
         }
 
-        //print out the values
+        //Print out the values
         for (i = 2; i < width + 2; i++) {
             printf("%u", rowA[i]);
             if (i != 2 * rows + 2) {
@@ -182,9 +182,6 @@ int main(int argc, char ** argv)
         free(rowB);
         rowB = calloc(2 * rows + 5, 1);
     }
-
-
-
     /* PART 3.5: MEMORY MANAGEMENT, PT. 2
      * (There is no task for Part 3, but please read through the code & any accompanying
      * comments: you should fully understand everything that is being done here)
