@@ -155,16 +155,14 @@ int main(int argc, char ** argv)
     //Succesive Genration
     while (length != 0) {
         //Recopy the array to B and reset A
-        unsigned int j;
-        for (j = 0; j < 2 * rows + 5; j++) {
-            rowB[j] = rowA[j];
+        for (i = 0; i < 2 * rows + 5; i++) {
+            rowB[i] = rowA[i];
         }
         free(rowA);
         rowA = calloc(2 * rows + 5, 1);
 
         //Check the previous generation (rowB) and update the new generation (rowA)
-        int h;
-        for (h = 2; h < width + 2; h++) {
+        for (i = 2; i < width + 2; i++) {
             int loc = (rowB[i - 2] * 16) + (rowB[i - 1] * 8) + (rowB[i] * 4) + (rowB[i + 1] * 2) + rowB[i + 2];
 
             if ((rule >> (loc)) - ((rule >> (loc + 1)) << 1) == 1) {
@@ -173,10 +171,9 @@ int main(int argc, char ** argv)
         }
 
         //print out the values
-        int f;
-        for (f = 2; f < width + 2; f++) {
-            printf("%u", rowA[f]);
-            if (f != 2 * rows + 2) {
+        for (i = 2; i < width + 2; i++) {
+            printf("%u", rowA[i]);
+            if (i != 2 * rows + 2) {
                 printf(" ");
             }
         }
