@@ -143,7 +143,7 @@ int main(int argc, char ** argv)
     // Initial Generation
     rowA[rows + 2] = 1;
     int i;
-    for (i = 2; i < 2 * rows + 3; i++) {
+    for (i = 0; i < 2 * rows + 5; i++) {
         printf("%u", rowA[i]);
         if (i != 2 * rows + 2) {
             printf(" ");
