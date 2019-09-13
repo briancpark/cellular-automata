@@ -108,7 +108,7 @@ int main(int argc, char ** argv)
     int width = (rows * 2 + 1);
     int length = (rows + 1);
 
-    printf("P1 %d %d ## %ul rows of automata simulation (Rule %ul)\n", width, length, rows_str, rule_str);
+    printf("P1 %d %d ## %u rows of automata simulation (Rule %u)\n", width, length, rows_str, rule_str);
 
     /*
      * PART 3: MEMORY MANAGEMENT
