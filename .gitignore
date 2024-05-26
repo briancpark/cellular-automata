@@ -1,0 +1,25 @@
+# Ignore object files
+*.o
+
+# Ignore compiled files
+*.out
+
+# Ignore binary files
+*
+
+# Exclude all files, then whitelist source files
+!/**
+
+# Whitelist C source files
+!*.c
+
+# Whitelist C header files
+!*.h
+
+# Whitelist Makefile
+!Makefile
+
+# Whitelist this .gitignore file
+!.gitignore
+
+.idea/

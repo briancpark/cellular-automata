@@ -18,8 +18,8 @@
 #include <stdlib.h>
 
 // <sys/types.h> needed for u_int32_t
-#include <sys/types.h>
 #include <stdint.h>
+#include <sys/types.h>
 
 // Feel free to include any other C standard library header files here
 // (Our staff solution does not use any other header files)
@@ -33,8 +33,7 @@
 /*
  * This function is called when `cell_auto.c` is run with invalid inputs
  */
-void usage(void)
-{
+void usage(void) {
 
     printf("    Proper usage: cell_auto <rule> <rows>\n\n");
 
@@ -48,14 +47,12 @@ void usage(void)
 
     // Execution should *NOT* continue after `usage()` is called, call `exit()` with return code 1
     exit(1);
-
 }
 
 /*
  * Takes in a `rule` and number of `rows` and prints the cellular automata simulation in PBM format
  */
-int main(int argc, char ** argv)
-{
+int main(int argc, char** argv) {
 
     char *rowA, *rowB, **endptr;
     u_int32_t rule, rows;
@@ -63,11 +60,11 @@ int main(int argc, char ** argv)
     /*
      * PART 1: USING COMMAND LINE ARGUMENTS
      * ====================================
-     * When using command line arguments, its important to perform validation to prevent improper usage.
-     * In Task 1, check that the number of arguments the user has provided is correct.
+     * When using command line arguments, its important to perform validation to prevent improper
+     * usage. In Task 1, check that the number of arguments the user has provided is correct.
      *
-     * In C, all command line arguments are provided as strings, but we need our arguments as integers.
-     * In Task 2, finish the conversion from strings to unsigned ints using `strtoul().
+     * In C, all command line arguments are provided as strings, but we need our arguments as
+     * integers. In Task 2, finish the conversion from strings to unsigned ints using `strtoul().
      * `strtoul` converts a string (str) to (to) an unsigned long (ul).
      * Try `man strtoul` if you want more information about what this function does.
      */
@@ -80,25 +77,26 @@ int main(int argc, char ** argv)
 
     /* PART 1, TASK 2: Convert `rule` and `rows` from a strings (char *) to an unsigned ints */
 
-    char * rule_str;
+    char* rule_str;
     // YOUR CODE HERE: set rule_str to the appropriate
     rule_str = argv[1];
-    rule = (unsigned int) strtoul(rule_str, (endptr = argv), 10);
-    if(**endptr)
+    rule = (unsigned int)strtoul(rule_str, (endptr = argv), 10);
+    if (**endptr)
         usage();
 
-    char * rows_str;
+    char* rows_str;
     // YOUR CODE HERE: set row_str to the appropriate string
     rows_str = argv[2];
-    rows = (unsigned int) strtoul(rows_str, (endptr = argv), 10);
-    if(**endptr)
+    rows = (unsigned int)strtoul(rows_str, (endptr = argv), 10);
+    if (**endptr)
         usage();
 
     /*
      * PART 2: USING FORMATTING ARGUMENTS & PRINTF
      * ===========================================
      * A properly formatted PBM file starts with P1 <width> <height>
-     * Write code that will print "P1 <width> <height> ## <rows> of automata simulation (Rule <rule>)", followed by a newline
+     * Write code that will print "P1 <width> <height> ## <rows> of automata simulation (Rule
+     * <rule>)", followed by a newline
      *
      * Example:
      * P1 11 6 ## 5 rows of automata simulation (Rule 450)
@@ -129,9 +127,9 @@ int main(int argc, char ** argv)
      * Check to see that memory allocation has been successful.
      * If not, write "Out of memory" to STDERR and exit with error code 1.
      */
-    if(!(rowA && rowB)) {
-      fprintf(stderr, "Error allocating rowA and rowB.\n");
-      exit(1);
+    if (!(rowA && rowB)) {
+        fprintf(stderr, "Error allocating rowA and rowB.\n");
+        exit(1);
     }
 
     /*
@@ -152,25 +150,26 @@ int main(int argc, char ** argv)
     length = length - 1;
     printf("\n");
 
-    //Succesive Genration
+    // Succesive Genration
     while (length != 0) {
-        //Recopy the array to B and reset A
+        // Recopy the array to B and reset A
         for (i = 0; i < 2 * rows + 5; i++) {
             rowB[i] = rowA[i];
         }
         free(rowA);
         rowA = calloc(2 * rows + 5, 1);
 
-        //Check the previous generation (rowB) and update the new generation (rowA)
+        // Check the previous generation (rowB) and update the new generation (rowA)
         for (i = 2; i < width + 2; i++) {
-            int loc = (rowB[i - 2] * 16) + (rowB[i - 1] * 8) + (rowB[i] * 4) + (rowB[i + 1] * 2) + rowB[i + 2];
+            int loc = (rowB[i - 2] * 16) + (rowB[i - 1] * 8) + (rowB[i] * 4) + (rowB[i + 1] * 2) +
+                      rowB[i + 2];
 
             if (((rule >> loc) & 1) == 1) {
                 rowA[i] = 1;
             }
         }
 
-        //Print out the values
+        // Print out the values
         for (i = 2; i < width + 2; i++) {
             printf("%u", rowA[i]);
             if (i != 2 * rows + 2) {
@@ -191,5 +190,4 @@ int main(int argc, char ** argv)
     free(rowB);
 
     return 0;
-
 }
